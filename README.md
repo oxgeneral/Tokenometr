@@ -1,26 +1,26 @@
 # Tokenometr
 
-Маленькое нативное приложение для macOS: самостоятельно измеряет скорость поступления текста из Codex и показывает `≈ 42.1 т/с` в строке меню. Swift + AppKit, без сервера, API-ключа, Electron и зависимостей на сторонние среды исполнения.
+A lightweight native macOS menu bar app that independently measures text arriving from Codex and displays an estimated token rate, such as `≈ 42.1 tok/s`. Built with Swift and AppKit, with no additional server, API key, Electron, or third-party runtime dependencies.
 
-Поддерживает Codex Desktop и Codex CLI. В карточке — модель, уровень рассуждения, минимум / средняя / максимум, график со статистикой при наведении и сохранение последнего замера.
+Supports Codex Desktop and Codex CLI. The popover shows the model, selected reasoning effort, minimum / average / maximum speed, a chart with interval statistics on hover, and the last saved measurement.
 
-**macOS 13 или новее · готовая сборка для Apple Silicon · приложение около 4 МБ.**
+**macOS 13 or later · prebuilt app for Apple Silicon · approximately 4 MB.**
 
-<img src="docs/screenshots/tokenometr-cli.png" alt="Карточка Tokenometr: скорость, график, статистика и выбранный уровень рассуждения" width="342" />
+<img src="docs/screenshots/tokenometr-cli.png" alt="Tokenometr popover showing token speed, a chart, speed statistics, and the selected reasoning effort" width="342" />
 
-*Скриншот с демонстрационными данными.*
+*Demo data. The current app interface is in Russian.*
 
-## Запуск
+## Getting started
 
-1. [Скачайте Tokenometr 0.2.0 для Mac с Apple Silicon](https://github.com/oxgeneral/Tokenometr/releases/download/v0.2.0/Tokenometr-0.2.0-macOS-arm64.zip) и распакуйте архив.
-2. Перенесите `Tokenometr.app` в папку «Программы» и откройте его.
-3. Откройте чат Codex или запустите обычный `codex` в терминале и начните генерацию.
+1. [Download Tokenometr 0.2.0 for Apple Silicon](https://github.com/oxgeneral/Tokenometr/releases/download/v0.2.0/Tokenometr-0.2.0-macOS-arm64.zip) and extract the archive.
+2. Move `Tokenometr.app` to your Applications folder and open it.
+3. Open a Codex chat or run the regular `codex` command in your terminal, then start a response.
 
-Tokenometr появляется в строке меню. По нажатию на значок доступны источник, модель, уровень рассуждения, график, число токенов, минимум / средняя / максимум и автозапуск. Терминал, Xcode и API-ключ для готовой сборки не нужны.
+Tokenometr appears in the menu bar. Click its icon to see the source, model, reasoning effort, chart, token count, minimum / average / maximum speed, and launch-at-login setting. The prebuilt app requires no terminal, Xcode, or API key.
 
-Готовая сборка пока не подписана сертификатом разработчика Apple и не нотарифицирована: macOS может запросить отдельное разрешение при первом запуске.
+The prebuilt app does not yet have an Apple Developer ID signature or notarization. macOS may require additional permission when you first open it.
 
-Для запуска из исходников нужны Apple Command Line Tools:
+To build from source, install Apple Command Line Tools and run:
 
 ```sh
 git clone https://github.com/oxgeneral/Tokenometr.git
@@ -28,43 +28,43 @@ cd Tokenometr
 ./scripts/build.sh
 ```
 
-После сборки откройте `dist/Tokenometr.app` или дважды нажмите `Open.command`. Скрипт сборки использует архитектуру текущего Mac; опубликованный архив содержит только сборку `arm64`.
+Then open `dist/Tokenometr.app` or double-click `Open.command`. The build script targets your Mac's architecture; the published archive contains only the `arm64` build.
 
-## Собственный замер
+## How measurement works
 
-Приложение подключается к существующему локальному IPC-каналу десктопного Codex и подписывается на последний обновлённый пользовательский чат. Оно получает текстовые изменения, считает токены локальным BPE-токенизатором OpenAI `o200k_base` и измеряет время монотонными часами. Число событий потока не принимается за число токенов. Повторные события отбрасываются по ревизии, полный текст пересчитывается с учётом объединения токенов между порциями.
+Tokenometr connects to Codex Desktop's existing local IPC channel and subscribes to the most recently updated user chat. It receives text changes, counts tokens locally using OpenAI's published `o200k_base` BPE tokenizer, and measures elapsed time with a monotonic clock. Stream events are not treated as tokens. Duplicate events are discarded by revision, and the entire accumulated text is recounted to account for token merges across chunks.
 
-Во время поступления текста показана скорость за последние две секунды; после фрагмента ответа остаётся его средняя скорость. Время до первого поступления текста, вызовы инструментов, их вывод и скрытые reasoning-токены не включены. Первая порция служит временной и числовой точкой отсчёта, поскольку время генерации её отдельных токенов неизвестно. Нельзя измерить скрытые токены по потоку видимого текста.
+While text arrives, the app displays the rate over the last two seconds. After a response fragment ends, its average rate remains visible. Time before the first text arrival, tool calls, tool output, and hidden reasoning tokens are excluded. The first chunk serves as the time and token-count baseline because the generation time of its individual tokens is unknown. Hidden tokens cannot be measured from visible text.
 
-В выплывающей карточке под графиком показаны минимум, средняя и максимум в т/с. Минимум и максимум фиксируются по скоростям окна при наблюдаемом поступлении текста; ожидание и обновления интерфейса не создают новые экстремумы. Последний полноценный замер остаётся после завершения ответа и начала следующего сообщения, пока новое сообщение не даст достаточно данных для своего замера. При этом показано «Сохранённый замер», а график остаётся доступен для наведения. Каждый новый замер имеет собственные минимум, максимум и временные отметки: скорость разных фрагментов не смешивается. Если сохранённого результата нет и данных ещё недостаточно, показано «—».
+The popover shows minimum, average, and maximum speed in tokens per second below the chart. Minimum and maximum are recorded from rolling-window rates at observed text arrivals; waiting and UI refreshes do not create new extrema. The last measurable result remains visible after completion and when the next message begins, until that message provides enough data for a new measurement. The result is marked as saved, and its chart remains available for inspection. Every new measurement has its own extrema and timestamps; rates from separate fragments are not combined. If no saved result exists and there is not enough data yet, the app shows `—`.
 
-Для каждого из последних 32 чатов сохраняется один замер: токены, время, средняя, минимум, максимум и до 512 точек графика. Он переживает новые снимки состояния Codex, переподключение и перезапуск приложения. Файл `~/Library/Application Support/Tokenometr/statistics.json` содержит только числовые данные, идентификаторы и сведения о модели; текст ответов не записывается. Записи объединяются с интервалом две секунды; обычное завершение приложения сохраняет оставшиеся изменения сразу.
+One measurement is saved for each of the 32 most recent chats: token count, duration, average, minimum, maximum, and up to 512 chart samples. It survives new Codex state snapshots, reconnection, and app restarts. The file at `~/Library/Application Support/Tokenometr/statistics.json` contains only numeric measurements, identifiers, and model metadata; response text is never written to disk. Writes are coalesced at two-second intervals, and normal app termination flushes pending changes immediately.
 
-Подписка восстанавливается при переподключении окна Codex и по его запросу списка наблюдателей. Каждые 30 секунд она также обновляется на случай тихой потери подписки. Повторный снимок той же ревизии сохраняет последний замер и график; при смене владельца потока, сбросе счётчика событий окна или пропущенных событиях устанавливается новая точка отсчёта.
+The desktop subscription is restored when a Codex window reconnects or requests its list of observers. It is also renewed every 30 seconds to recover from silent subscription loss. A repeated snapshot at the same revision preserves the current measurement and chart. A change of stream owner, a reset of the window's revision counter, or missing events establishes a new baseline.
 
-Рядом с моделью отображается выбранный в Codex уровень рассуждения (`Low`, `High`, `XHigh` и другие). Он читается из живых метаданных ответа и настроек чата. Если Codex оставляет поле потока пустым, используется сохранённый `reasoning_effort` именно этого чата из локальной базы; глобальные настройки не подставляются. Уровень обновляется без сброса скорости и графика. Если ни один источник не содержит значения, указано «не указан».
+The reasoning effort selected in Codex (`Low`, `High`, `XHigh`, and others) appears next to the model. It comes from live response metadata and chat settings. If Codex leaves the stream field empty, Tokenometr uses that specific chat's saved `reasoning_effort` from the local database; global defaults are not substituted. The level updates without resetting the rate or chart. If neither source provides a value, it is shown as unknown.
 
-График содержит реальные временные отметки поступлений текста за последнюю минуту текущего фрагмента. Наведите на точку: выделится окно около двух секунд, под графиком появятся его границы и число токенов, а ряд минимума / средней / максимума покажет статистику этого интервала. Пока указатель на графике, его история зафиксирована для удобного просмотра. При уходе указателя возвращается сводка всего фрагмента. Время измеряется от первой наблюдаемой порции; границы интервала соответствуют поступлениям, промежутки не заполняются выдуманными токенами. При наведении на значок в строке меню также доступны модель, уровень и сводка последнего интервала.
+The chart contains actual text-arrival timestamps from the last minute of the current fragment. Hover over a point to select an interval of approximately two seconds. Its boundaries and token count appear below the chart, and the minimum / average / maximum row shows statistics for that interval. The chart history freezes while the pointer is over it so you can inspect it comfortably. Moving the pointer away restores the whole-fragment summary. Time is measured from the first observed chunk; interval boundaries follow actual arrivals, and gaps are not filled with invented tokens. Hovering over the menu bar icon also shows the model, reasoning effort, and latest interval summary.
 
-Знак `≈` показан всегда: приватный токенизатор конкретной модели Codex может отличаться от опубликованного `o200k_base`; приложение измеряет скорость доставки текста пользователю, которая также зависит от буферизации. Точные серверные показатели usage для вычисления скорости не используются.
+The `≈` symbol is always displayed: a Codex model's private tokenizer may differ from the published `o200k_base` tokenizer. Tokenometr measures the delivery of visible text to the user, which can also be affected by buffering. Server-side token usage counters are not used to calculate speed.
 
 ## Codex CLI
 
-CLI подключается автоматически через существующий локальный app-server daemon. Обёртки, дополнительный сервер и изменение команды `codex` не нужны. Проверена версия `codex-cli 0.160.0`. Поддерживаются обычная сессия и возобновление сессии: современные терминальные сессии в общем сервере могут иметь историческую отметку `vscode`, поэтому она также учитывается.
+CLI sessions are detected automatically through the existing local app-server daemon. No wrapper, additional server, or change to the `codex` command is needed. Tested with `codex-cli 0.160.0`. Both new and resumed sessions are supported: modern terminal sessions on the shared server may retain the historical `vscode` source label, so that label is also recognized.
 
-Tokenometr проверяет стандартный `$CODEX_HOME/app-server-control/app-server-control.sock` (по умолчанию `~/.codex`) и локальные дома аккаунтов Orca. Для нестандартного `CODEX_HOME` приложение можно запустить с этим значением окружения. Ссылки на сокет и длинные пути аккаунтов поддерживаются. Подписка выполняется только для уже загруженных пользовательских сессий; хранимые закрытые чаты и вспомогательные агенты не запускаются. В одном локальном сервере отслеживается до восьми пользовательских сессий; читается их текущая модель и уровень.
+Tokenometr checks `$CODEX_HOME/app-server-control/app-server-control.sock` (`CODEX_HOME` defaults to `~/.codex`) and local Orca account homes. For a custom `CODEX_HOME`, launch the app with that environment variable set. Socket symlinks and long account paths are supported. Tokenometr subscribes only to user sessions already loaded by the daemon; it does not load closed stored chats or auxiliary agents. Up to eight user sessions are monitored per local server, including their current model and reasoning effort.
 
-У двух источников общий интерфейс и одинаковый собственный замер: в CLI считаются только живые `item/agentMessage/delta` и `item/plan/delta`. Полные тексты в ответе подписки, события завершения, usage, рассуждения и вывод инструментов не создают точки скорости. Все показатели и график сохраняются так же, как у десктопных чатов. Источник переключается по последнему наблюдаемому поступлению текста, а название `Codex` / `Codex CLI` видно в карточке и подсказке значка. Ожидание, обновление настроек и служебные события сами по себе источник не переключают.
+Both sources share the same interface and independent measurement logic. The CLI adapter counts only live `item/agentMessage/delta` and `item/plan/delta` events. Full text returned by a subscription, completion events, usage counters, reasoning, and tool output do not create speed samples. Measurements and chart history are saved in the same way as desktop chats. The displayed source follows the most recent observed text arrival, and `Codex` or `Codex CLI` appears in the popover and menu bar tooltip. Waiting, settings updates, and service events alone do not switch the source.
 
-## Ограничения
+## Limitations and privacy
 
-Проверено с локальным десктопным Codex и Codex CLI на этом Mac. Десктопный IPC протокол внутренний, версия потока 11: обновление Codex может потребовать изменения адаптера. Чат должен быть открыт в Codex, чтобы его владелец публиковал изменения. CLI требует локального общего app-server daemon: `codex --no-daemon`, отдельный `codex exec`, старые версии без общего сервера и удалённые WebSocket-серверы не отслеживаются. В отсутствие совместимого потока показывается ожидание, вымышленные числа не подставляются. Другие клиенты того же общего сервера также могут публиковать наблюдаемый текст: название `Codex CLI` обозначает этот канал, а не проверку активного окна терминала.
+Tested with local Codex Desktop and Codex CLI on the development Mac. The desktop IPC protocol is internal, with stream version 11; Codex updates may require adapter changes. The chat must be open in Codex so its owner publishes changes. CLI support requires the local shared app-server daemon: `codex --no-daemon`, standalone `codex exec`, older versions without a shared server, and remote WebSocket servers are not monitored. If no compatible stream is available, the app shows a waiting state rather than fabricated values. Other clients using the same shared server can also publish observed text: the `Codex CLI` label identifies that channel, not the active terminal window.
 
-Tokenometr не меняет настройки Codex, не запускает генерацию, не принимает запросы на управление чатами, не сохраняет тексты и не обращается к сети. Для обнаружения последнего чата читает его идентификатор, название и сохранённый уровень рассуждения из локальной SQLite-базы в режиме read-only. Все тексты для подсчёта живут в памяти процесса.
+Tokenometr does not change Codex settings, start responses, accept chat-control requests, persist conversation text, or make external network requests. To discover the latest desktop chat, it reads the chat ID, title, and saved reasoning effort from the local SQLite database in read-only mode. Text used for token counting exists only in process memory.
 
-## Разработка
+## Development
 
-Нужны уже установленные Apple Command Line Tools; Xcode-проект и менеджер пакетов не требуются.
+Apple Command Line Tools are required. No Xcode project or package manager is needed.
 
 ```sh
 ./scripts/build.sh
@@ -74,10 +74,10 @@ python3 scripts/cli-integration-test.py
 ./dist/Tokenometr.app/Contents/MacOS/Tokenometr --diagnose --duration 15
 ```
 
-Диагностика выводит только состояние подключения и числовые метрики. Терминал и Python не нужны для обычного запуска приложения.
+Diagnostics print only connection status, model and reasoning metadata, and numeric measurements. A terminal and Python are not required for normal app use.
 
-Интеграционный тест использует только стандартную библиотеку Python и временный локальный IPC-канал. Проверяет нативную сборку, восстановление соединения и подписки без разрыва сокета, замену окна Codex, сохранение статистики при обновлении подписки, смену чата, повторы, пропущенные события, Unicode и исключение инструментов. Реальные настройки и база Codex при этом не изменяются. Результат сохраняется в `artifacts/integration-results.json`.
+The desktop integration test uses only Python's standard library and a temporary local IPC channel. It checks the native build, connection and subscription recovery without closing the socket, Codex window replacement, measurement retention during subscription refresh, chat switching, duplicate and missing events, Unicode, and tool-output exclusion. It does not modify real Codex settings or databases. Results are written to `artifacts/integration-results.json`.
 
-Тест CLI использует временный Unix WebSocket и проверяет подписку без переопределения настроек, маскирование, ping/pong, сокет через ссылку и длинный путь, исключение истории и служебных событий, собственную скорость, сохранение, восстановление подключения и перезапуск. Результат записывается в `artifacts/cli-integration-results.json`.
+The CLI test uses a temporary Unix WebSocket. It checks subscriptions without configuration overrides, masking, ping/pong, socket symlinks and long paths, exclusion of history and service events, independent speed measurement, persistence, reconnection, and restart recovery. Results are written to `artifacts/cli-integration-results.json`.
 
-Словарь токенизатора: [OpenAI tiktoken](https://github.com/openai/tiktoken), лицензия MIT приложена в `Resources/tiktoken-LICENSE.txt`. События app-server описаны в [официальной документации](https://learn.chatgpt.com/docs/app-server); десктопный IPC адаптер проверен по установленной версии приложения.
+Tokenizer vocabulary: [OpenAI tiktoken](https://github.com/openai/tiktoken). Its MIT license is included in `Resources/tiktoken-LICENSE.txt`. App-server events are described in the [official documentation](https://learn.chatgpt.com/docs/app-server); the desktop IPC adapter was verified against the installed Codex version.
