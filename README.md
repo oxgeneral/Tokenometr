@@ -4,13 +4,13 @@ See how fast Codex writes, right in your Mac's menu bar.
 
 Tokenometr shows the speed of incoming text in tokens per second. It works with **Codex Desktop and Codex CLI**.
 
-**[Download for Mac (Apple Silicon)](https://github.com/oxgeneral/Tokenometr/releases/download/v0.2.0/Tokenometr-0.2.0-macOS-arm64.zip)**
+**[Download for Mac (Apple Silicon)](https://github.com/oxgeneral/Tokenometr/releases/download/v0.2.1/Tokenometr-0.2.1-macOS-arm64.zip)**
 
 macOS 13 or later · About 4 MB
 
 <img src="docs/screenshots/tokenometr-cli.png" alt="Tokenometr showing speed, a chart, and response statistics" width="342" />
 
-*Demo screenshot. The app's interface is currently in Russian.*
+*Demo screenshot.*
 
 ## Get started
 
@@ -18,7 +18,7 @@ macOS 13 or later · About 4 MB
 2. Open Tokenometr, then use Codex as usual.
 3. Click the menu bar icon to see your stats or enable launch at login.
 
-No API key or extra setup needed. This release is unsigned, so macOS may warn you on first launch.
+The app follows your Mac's language: English or Russian. No API key or extra setup needed. This release is unsigned, so macOS may warn you on first launch.
 
 ## What you can see
 

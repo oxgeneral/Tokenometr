@@ -90,11 +90,11 @@ final class CLIObserver {
         state.fragmentID = usingSaved ? saved?.fragmentID : stream.measurementID
         state.observedReading = reading; state.usingSavedReading = usingSaved; state.savedAt = saved?.recordedAt
         state.changes = stream.changes
-        state.note = reading == nil ? "Жду появления текста ответа"
-            : reading?.streaming == true ? "Генерация · собственный замер" : "Последний фрагмент ответа"
-        if usingSaved { state.note = stream.connected ? "Сохранённый замер · жду новый ответ" : "Сохранённый замер · CLI отключён" }
-        else if !stream.connected { state.note = "Последний замер · CLI отключён" }
-        if statistics.saveFailed, state.reading?.streaming != true { state.note = "Замер в памяти · не удалось сохранить" }
+        state.note = reading == nil ? L("Waiting for response text")
+            : reading?.streaming == true ? L("Generating · measuring text arrivals") : L("Last response")
+        if usingSaved { state.note = stream.connected ? L("Saved measurement · waiting for a new response") : L("Saved measurement · CLI disconnected") }
+        else if !stream.connected { state.note = L("Last measurement · CLI disconnected") }
+        if statistics.saveFailed, state.reading?.streaming != true { state.note = L("Measurement in memory · could not save") }
         return state
     }
 }
@@ -120,7 +120,7 @@ private final class CLIConnection {
             for stream in self.streams.values { stream.finish(); stream.connected = false }
             self.streams = [:]; self.lastPoll = -10
             if connected {
-                self.request("initialize", ["clientInfo": ["name": "tokenometr", "title": "Tokenometr", "version": "0.2.0"],
+                self.request("initialize", ["clientInfo": ["name": "tokenometr", "title": "Tokenometr", "version": "0.2.1"],
                     "capabilities": ["experimentalApi": true]])
             }
         }

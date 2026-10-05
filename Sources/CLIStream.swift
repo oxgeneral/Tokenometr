@@ -4,7 +4,7 @@ import Foundation
 /// reasoning, tools and server usage never establish an arrival sample.
 final class CLIStream {
     let threadID: String
-    var name = "Сессия терминала"
+    var name = L("Terminal session")
     var model = "Codex"
     var reasoningEffort: String?
     var connected = false

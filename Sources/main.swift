@@ -22,7 +22,7 @@ final class Sparkline: NSView {
         let area = NSTrackingArea(rect: .zero,
             options: [.mouseEnteredAndExited, .mouseMoved, .enabledDuringMouseDrag, .activeAlways, .inVisibleRect], owner: self, userInfo: nil)
         addTrackingArea(area); mouseTracking = area
-        setAccessibilityLabel("График скорости. Наведение показывает статистику двухсекундного интервала.")
+        setAccessibilityLabel(L("Speed chart. Hover to inspect a two-second interval."))
     }
 
     override func mouseEntered(with event: NSEvent) {
@@ -100,18 +100,18 @@ final class Sparkline: NSView {
 }
 
 func timelineTime(_ time: Double, includeUnit: Bool = true) -> String {
-    if time < 60 { return String(format: "%.1f%@", time, includeUnit ? " с" : "") }
+    if time < 60 { return String(format: "%.1f%@", time, includeUnit ? L(" s") : "") }
     return String(format: "%d:%04.1f", Int(time) / 60, time.truncatingRemainder(dividingBy: 60))
 }
 
 func effortName(_ effort: String?) -> String {
-    guard let effort = effort, !effort.isEmpty else { return "не указан" }
+    guard let effort = effort, !effort.isEmpty else { return L("Not set") }
     return ["none": "None", "minimal": "Minimal", "low": "Low", "medium": "Medium",
             "high": "High", "xhigh": "XHigh", "max": "Max", "ultra": "Ultra"][effort] ?? effort
 }
 
 final class EffortBadge: NSView {
-    private let label = NSTextField(labelWithString: "Уровень · —")
+    private let label = NSTextField(labelWithString: L("Effort · —"))
     override init(frame: NSRect) {
         super.init(frame: frame)
         label.font = .systemFont(ofSize: 10, weight: .medium)
@@ -125,8 +125,8 @@ final class EffortBadge: NSView {
         NSBezierPath(roundedRect: bounds, xRadius: 6, yRadius: 6).fill()
     }
     func update(_ effort: String?) {
-        label.stringValue = "Уровень · \(effortName(effort))"
-        label.toolTip = "Выбранный уровень рассуждения Codex: \(effortName(effort))"
+        label.stringValue = String(format: L("Effort · %@"), effortName(effort))
+        label.toolTip = String(format: L("Selected Codex reasoning effort: %@"), effortName(effort))
     }
 }
 
@@ -136,11 +136,11 @@ final class SpeedStatistics: NSView {
 
     override init(frame: NSRect) {
         super.init(frame: frame)
-        let titles = ["Минимум", "Средняя", "Максимум"]
+        let titles = [L("Minimum"), L("Average"), L("Maximum")]
         let explanations = [
-            "Минимальная скорость при поступлении текста текущего фрагмента, т/с",
-            "Средняя скорость текущего фрагмента, т/с",
-            "Максимальная скорость при поступлении текста текущего фрагмента, т/с"
+            L("Minimum speed in the current segment, tok/s"),
+            L("Average speed in the current segment, tok/s"),
+            L("Maximum speed in the current segment, tok/s")
         ]
         let width = frame.width / 3
         for i in 0..<3 {
@@ -184,9 +184,10 @@ final class SpeedStatistics: NSView {
             values[i].font = .monospacedDigitSystemFont(ofSize: text.count > 8 ? 14 : 18, weight: .semibold)
             values[i].textColor = i == 2 && interval != nil ? .controlAccentColor
                 : (i == 2 && reading?.streaming == true ? .systemGreen : .labelColor)
-            let kind = ["Минимальная", "Средняя", "Максимальная"][i]
-            let span = interval == nil ? "текущего фрагмента" : "выделенного интервала"
-            let tip = "\(kind) скорость \(span), т/с"
+            let tips = interval == nil
+                ? [L("Minimum speed in the current segment, tok/s"), L("Average speed in the current segment, tok/s"), L("Maximum speed in the current segment, tok/s")]
+                : [L("Minimum speed in the selected interval, tok/s"), L("Average speed in the selected interval, tok/s"), L("Maximum speed in the selected interval, tok/s")]
+            let tip = tips[i]
             values[i].toolTip = tip; labels[i].toolTip = tip
         }
     }
@@ -194,14 +195,14 @@ final class SpeedStatistics: NSView {
 
 final class MeterCard: NSView {
     private let title = NSTextField(labelWithString: "Tokenometr")
-    private let status = NSTextField(labelWithString: "Ожидаю Codex")
+    private let status = NSTextField(labelWithString: L("Waiting for Codex"))
     private let speed = NSTextField(labelWithString: "—")
-    private let subtitle = NSTextField(labelWithString: "токенов / секунду")
+    private let subtitle = NSTextField(labelWithString: L("tokens / second"))
     private let model = NSTextField(labelWithString: "Codex")
     private let details = NSTextField(labelWithString: "")
     private let thread = NSTextField(labelWithString: "")
     private let chart = Sparkline()
-    private let scope = NSTextField(labelWithString: "Весь фрагмент · наведите на график")
+    private let scope = NSTextField(labelWithString: L("Response stats · hover to inspect"))
     private let statistics = SpeedStatistics(frame: NSRect(x: 18, y: 100, width: 306, height: 56))
     private let effort = EffortBadge(frame: NSRect(x: 198, y: 70, width: 126, height: 22))
     private var graphFragmentID: String?
@@ -224,7 +225,7 @@ final class MeterCard: NSView {
         scope.font = .systemFont(ofSize: 10, weight: .medium)
         scope.textColor = .secondaryLabelColor
         scope.frame = NSRect(x: 18, y: 164, width: 306, height: 16)
-        scope.toolTip = "Наведите на график: статистика окна около двух секунд. Время отсчитывается от первой наблюдаемой порции текста."
+        scope.toolTip = L("Hover to inspect about two seconds of text arrivals. Time starts with the first observed chunk.")
         chart.onInspect = { [weak self] interval in
             self?.inspectedInterval = interval
             self?.updateStatistics()
@@ -258,11 +259,11 @@ final class MeterCard: NSView {
         thread.stringValue = state.thread
         thread.toolTip = state.thread
         if let reading = state.reading {
-            details.stringValue = String(format: "≈ %d токенов  ·  %.1f с", reading.tokens, reading.duration)
+            details.stringValue = String(format: L("≈ %d tokens  ·  %.1f s"), reading.tokens, reading.duration)
             if state.usingSavedReading, let date = state.savedAt {
                 details.stringValue += "  ·  \(date.formatted(date: .omitted, time: .shortened))"
             }
-        } else { details.stringValue = "Самостоятельный подсчёт текста ответа" }
+        } else { details.stringValue = L("Counting response text locally") }
         if state.fragmentID != graphFragmentID || state.reading == nil {
             chart.clearInspection()
             graphFragmentID = state.fragmentID
@@ -274,12 +275,12 @@ final class MeterCard: NSView {
     private func updateStatistics() {
         statistics.update(lastState.reading, interval: inspectedInterval)
         if let interval = inspectedInterval {
-            scope.stringValue = "\(timelineTime(interval.start, includeUnit: false))–\(timelineTime(interval.end)) · ≈ \(interval.tokens) токенов"
+            scope.stringValue = String(format: L("%@–%@ · ≈ %d tokens"), timelineTime(interval.start, includeUnit: false), timelineTime(interval.end), interval.tokens)
             scope.textColor = .controlAccentColor
         } else {
             scope.stringValue = lastState.reading?.history.contains(where: { $0.speed != nil }) == true
-                ? (lastState.usingSavedReading ? "Сохранённый фрагмент · наведите на график" : "Весь фрагмент · наведите на график")
-                : "Жду данные для графика · окно 2 с"
+                ? (lastState.usingSavedReading ? L("Saved stats · hover to inspect") : L("Response stats · hover to inspect"))
+                : L("Waiting for chart data · 2 s window")
             scope.textColor = .secondaryLabelColor
         }
     }
@@ -303,24 +304,24 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             button.image?.isTemplate = true
             button.imagePosition = .imageLeft
             button.font = .monospacedDigitSystemFont(ofSize: 12, weight: .medium)
-            button.title = " — т/с"
+            button.title = L(" — tok/s")
         }
         let menu = NSMenu()
         menu.delegate = self
         let meterItem = NSMenuItem(); meterItem.view = card; menu.addItem(meterItem)
         menu.addItem(.separator())
-        let explanation = NSMenuItem(title: "Как считается скорость", action: nil, keyEquivalent: "")
+        let explanation = NSMenuItem(title: L("How speed is measured"), action: nil, keyEquivalent: "")
         let help = NSMenu()
-        for text in ["Текст приходит из живого потока Codex", "Токены считаем локально · o200k_base",
-                     "Скорость за последние 2 секунды", "Мин / макс — при поступлении текста",
-                     "Последний замер сохраняется для каждого чата", "Скрытое рассуждение и инструменты исключены",
-                     "≈ означает отличие токенизации модели"] {
+        for text in [L("Text comes from the live Codex stream"), L("Tokens are counted locally · o200k_base"),
+                     L("Speed over the last 2 seconds"), L("Min / max are recorded when text arrives"),
+                     L("The last measurement is saved for each chat"), L("Hidden reasoning and tools are excluded"),
+                     L("≈ accounts for tokenizer differences")] {
             let item = NSMenuItem(title: text, action: nil, keyEquivalent: ""); item.isEnabled = false; help.addItem(item)
         }
         explanation.submenu = help; menu.addItem(explanation)
-        loginItem = NSMenuItem(title: "Запускать при входе", action: #selector(toggleLogin), keyEquivalent: "")
+        loginItem = NSMenuItem(title: L("Launch at login"), action: #selector(toggleLogin), keyEquivalent: "")
         loginItem.target = self; menu.addItem(loginItem)
-        let quit = NSMenuItem(title: "Завершить Tokenometr", action: #selector(quitApp), keyEquivalent: "q")
+        let quit = NSMenuItem(title: L("Quit Tokenometr"), action: #selector(quitApp), keyEquivalent: "q")
         quit.target = self; menu.addItem(quit)
         statusItem.menu = menu
         do {
@@ -332,7 +333,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             }
             monitor = observer; observer.start()
         } catch {
-            var state = MonitorState(); state.note = "Не удалось загрузить токенизатор"
+            var state = MonitorState(); state.note = L("Could not load the tokenizer")
             display(state)
         }
     }
@@ -341,11 +342,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
         guard state != displayedState else { return }
         displayedState = state
         card.update(state)
-        statusItem.button?.title = state.reading?.speed.map { String(format: " ≈ %.1f т/с", $0) } ?? " — т/с"
-        var summary = "\(state.source) · \(state.model) · Уровень \(effortName(state.reasoningEffort))"
+        statusItem.button?.title = state.reading?.speed.map { String(format: L(" ≈ %.1f tok/s"), $0) } ?? L(" — tok/s")
+        var summary = String(format: L("%@ · %@ · Effort %@"), state.source, state.model, effortName(state.reasoningEffort))
         if let history = state.reading?.history, let end = history.last?.time,
            let interval = intervalStatistics(in: history, endingAt: end) {
-            summary += String(format: "\nЗа %.1f с · ≈ %d токенов\nСредняя ≈ %.1f т/с\nМин ≈ %.1f · Макс ≈ %.1f",
+            summary += String(format: L("\nOver %.1f s · ≈ %d tokens\nAverage ≈ %.1f tok/s\nMin ≈ %.1f · Max ≈ %.1f"),
                               interval.duration, interval.tokens, interval.average, interval.minimum, interval.maximum)
         } else { summary += "\n\(state.note)" }
         statusItem.button?.toolTip = summary
@@ -365,7 +366,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSMenuDelegate {
             else { try SMAppService.mainApp.register() }
         } catch {
             let alert = NSAlert()
-            alert.messageText = "Не удалось изменить автозапуск"
+            alert.messageText = L("Could not change launch at login")
             alert.informativeText = error.localizedDescription
             alert.runModal()
         }
@@ -402,9 +403,9 @@ func demoState(completed: Bool = false) -> MonitorState {
         meter.update(tokens: tokens, at: Double(i) * 0.4)
     }
     if completed { meter.finish() }
-    return MonitorState(connected: true, thread: "Демонстрация интерфейса", model: "gpt-6.1-sol",
+    return MonitorState(connected: true, thread: L("Interface preview"), model: "gpt-6.1-sol",
         reasoningEffort: "xhigh", reading: meter.reading(at: 12.8), fragmentID: "demo", changes: 32,
-        note: completed ? "Демо · последний фрагмент ответа" : "Демо · собственный замер")
+        note: completed ? L("Demo · last response") : L("Demo · measuring text arrivals"))
 }
 
 let arguments = CommandLine.arguments
@@ -428,21 +429,21 @@ if let index = arguments.firstIndex(of: "--render-preview"), index + 1 < argumen
         i + 1 < arguments.count ? arguments[i + 1] : nil
     }
     if previewState == "waiting" {
-        card.update(MonitorState(connected: true, thread: "Демонстрация интерфейса",
-                                note: "Демо · жду появления текста"))
+        card.update(MonitorState(connected: true, thread: L("Interface preview"),
+                                note: L("Demo · waiting for text")))
     } else if previewState == "completed" {
         card.update(demoState(completed: true))
     } else if previewState == "saved" {
         var state = demoState(completed: true)
         state.usingSavedReading = true; state.savedAt = Date()
-        state.note = "Демо · сохранённый замер"
+        state.note = L("Demo · saved measurement")
         card.update(state)
     } else if previewState == "hover" {
         card.previewInspection(at: 7.2)
     } else if previewState == "cli" {
         var state = demoState(completed: true)
-        state.source = "Codex CLI"; state.thread = "Сессия терминала"
-        state.note = "Последний фрагмент ответа"
+        state.source = "Codex CLI"; state.thread = L("Terminal session")
+        state.note = L("Last response")
         card.update(state)
     }
     card.layoutSubtreeIfNeeded()
@@ -454,7 +455,7 @@ if let index = arguments.firstIndex(of: "--render-preview"), index + 1 < argumen
     app.setActivationPolicy(.regular)
     let card = MeterCard(); card.update(demoState(completed: true))
     let window = NSWindow(contentRect: card.bounds, styleMask: [.titled, .closable], backing: .buffered, defer: false)
-    window.title = "Tokenometr · проверка наведения"
+    window.title = L("Tokenometr · hover preview")
     window.contentView = card; window.center(); window.makeKeyAndOrderFront(nil)
     app.activate(ignoringOtherApps: true)
     app.run()

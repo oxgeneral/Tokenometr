@@ -2,6 +2,8 @@
 
 [Back to the README](../README.md)
 
+The interface supports English and Russian and follows macOS language preferences, with English as the fallback.
+
 ## Build from source
 
 To build from source, install Apple Command Line Tools and run:

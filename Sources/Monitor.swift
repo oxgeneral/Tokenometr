@@ -3,7 +3,7 @@ import Foundation
 struct MonitorState: Equatable {
     var connected = false
     var source = "Codex"
-    var thread = "Ожидаю Codex"
+    var thread = L("Waiting for Codex")
     var model = "Codex"
     var reasoningEffort: String?
     var reading: MeterReading?
@@ -12,7 +12,7 @@ struct MonitorState: Equatable {
     var usingSavedReading = false
     var savedAt: Date?
     var changes = 0
-    var note = "Откройте чат и запустите генерацию"
+    var note = L("Open a chat and start a response")
 }
 
 final class Monitor {
@@ -104,7 +104,7 @@ final class Monitor {
         let usingSaved = reading?.canBeSaved != true && saved != nil
         var state = MonitorState()
         state.connected = clientID != nil
-        state.thread = selectedThread?.name ?? "Ожидаю Codex"
+        state.thread = selectedThread?.name ?? L("Waiting for Codex")
         state.model = accumulator.model == "Codex" ? saved?.model ?? "Codex" : accumulator.model
         state.reasoningEffort = accumulator.reasoningEffort ?? selectedThread?.reasoningEffort
         state.reading = usingSaved ? saved?.reading : reading
@@ -113,18 +113,18 @@ final class Monitor {
         state.usingSavedReading = usingSaved
         state.savedAt = saved?.recordedAt
         state.changes = accumulator.receivedChanges
-        if clientID == nil { state.note = "Ожидаю подключения к Codex" }
-        else if !hasSnapshot { state.note = "Ожидаю открытый чат Codex" }
-        else if reading?.streaming == true { state.note = "Генерация · собственный замер" }
-        else if reading != nil { state.note = "Последний фрагмент ответа" }
-        else { state.note = "Жду появления текста ответа" }
+        if clientID == nil { state.note = L("Waiting to connect to Codex") }
+        else if !hasSnapshot { state.note = L("Waiting for an open Codex chat") }
+        else if reading?.streaming == true { state.note = L("Generating · measuring text arrivals") }
+        else if reading != nil { state.note = L("Last response") }
+        else { state.note = L("Waiting for response text") }
         if usingSaved {
-            state.note = clientID == nil ? "Сохранённый замер · Codex отключён"
-                : reading != nil ? "Сохранённый замер · собираю новый"
-                : "Сохранённый замер · жду новый ответ"
+            state.note = clientID == nil ? L("Saved measurement · Codex disconnected")
+                : reading != nil ? L("Saved measurement · measuring new response")
+                : L("Saved measurement · waiting for a new response")
         }
         if statistics.saveFailed, state.reading != nil, state.reading?.streaming != true {
-            state.note = "Замер в памяти · не удалось сохранить"
+            state.note = L("Measurement in memory · could not save")
         }
         if let candidate = cli.state(at: now) {
             let newer = candidate.reading != nil && (cli.lastArrival > desktopArrival
