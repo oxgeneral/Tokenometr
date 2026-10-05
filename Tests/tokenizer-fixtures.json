@@ -1,0 +1,394 @@
+[
+  {
+    "text": "",
+    "tokens": 0
+  },
+  {
+    "text": "hello world",
+    "tokens": 2
+  },
+  {
+    "text": "Hello, world!",
+    "tokens": 4
+  },
+  {
+    "text": "Привет, мир!",
+    "tokens": 5
+  },
+  {
+    "text": "🙂👍🏽 hello",
+    "tokens": 5
+  },
+  {
+    "text": "let speed = tokens / seconds\n",
+    "tokens": 7
+  },
+  {
+    "text": "你好，世界！",
+    "tokens": 4
+  },
+  {
+    "text": "é café",
+    "tokens": 3
+  },
+  {
+    "text": "I'm testing it, isn't it fine?",
+    "tokens": 8
+  },
+  {
+    "text": "\r\n\r\n    \t   ",
+    "tokens": 2
+  },
+  {
+    "text": "HTTPS://EXAMPLE.COM/a/b?q=1&x=2",
+    "tokens": 14
+  },
+  {
+    "text": "سلام دنیا",
+    "tokens": 2
+  },
+  {
+    "text": "नमस्ते दुनिया",
+    "tokens": 5
+  },
+  {
+    "text": "🚀👨‍👩‍👧‍👦",
+    "tokens": 13
+  },
+  {
+    "text": "foo     bar\nend  ",
+    "tokens": 6
+  },
+  {
+    "text": "123456789000001",
+    "tokens": 5
+  },
+  {
+    "text": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+    "tokens": 256
+  },
+  {
+    "text": "!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_!?/+=_",
+    "tokens": 2000
+  },
+  {
+    "text": "dJFCrnПlм2edlBD.рdиzП1C5мJau2",
+    "tokens": 24
+  },
+  {
+    "text": "JtBRnlWmTSрHf6\tpWkрL🙂好UеyifDLkDmWJ6UuVTAIjрv\tFu7WIиCPhDeOZIiBвOB,Y6sHrFи\tHт2тZUCr!,lgot🙂",
+    "tokens": 65
+  },
+  {
+    "text": "2иiXWи7\nGрbo\tIRoL3u6aH.w.n🙂M.рztVuП\naиP c",
+    "tokens": 34
+  },
+  {
+    "text": "UNEhEвkk i\tqq8рvH\nр2BПzNZV4?5",
+    "tokens": 23
+  },
+  {
+    "text": "FCiRcмрDмCaj🙂hDieQj!EJ BПqее8F8",
+    "tokens": 24
+  },
+  {
+    "text": "ymm3T207gmhZRnFyy\t5r2xJ7Fj4рmgПblEv0 9BZhvWaXH6K2и tyLBhтПhOhgт9.\nuh!kxiиiEZpвFтиf好k1тв?OHAOEHYqM6Ojb6好вm",
+    "tokens": 78
+  },
+  {
+    "text": "\tB.HqSiFVKu4ПM你\nbрM",
+    "tokens": 14
+  },
+  {
+    "text": "rHonрtIKрARAH. Ggl2JfaQqHu4",
+    "tokens": 18
+  },
+  {
+    "text": "2иbojtПeVтрs3qfNUfTAFnTи0好tEuw0dwQ0FIunWe8Cz6SNDCdyZQJiJS!Z\tQdoHwтHenи3SO3р!oXеyGf3a?\tzU3iQ好OpM.N0PZLрqy1Ww你вMZрaMKA3трP744B!8vkK!好QlENCzsdfF8",
+    "tokens": 106
+  },
+  {
+    "text": "j61🙂еyX,ZFsan2Cw?7gиFp6r7\nииO4你.2р5u85HFJ? 🙂EJ4jKEIQOПkrtDXtBi10QП71hA1XтcеW9aTMX1\tПрC CI3 dXRZv7q好\tdYмвdk2r7xgHWPB6PRWJ1Gk8cПgSCifdFzc好tEq8oвB7GVvррouNnтdNе",
+    "tokens": 124
+  },
+  {
+    "text": "Yzjм🙂FnMиpвfS\t2Vi.Rb1 n3U6t3w?I你\t973мIPFlJ5F7в你WRd,Px BTHRJиJиb?ykE0 иE8 5clLCZFNтV8р\nS2рQT6INGDp",
+    "tokens": 75
+  },
+  {
+    "text": "Op\txyB9Jм\nиKmyLDUwMb\tqJfgрLq nbеK894RxgG9oiZ jе🙂gt",
+    "tokens": 35
+  },
+  {
+    "text": "вMkFpи1ри好C?W54Mм2Nв好h你mA🙂BHkuEwрjua05и",
+    "tokens": 31
+  },
+  {
+    "text": "LeDKK6jDH🙂мz2oПCtIsjhvNивK4p7MZI.П,4kиf3PрGdlDемcIеfw8?4Jxт3 l8S0QPnuQ0,KZрe6lOGPoZ!aП70gy?U好,🙂4gAIрqK4 pd🙂рEuNрbр0lCo7pt",
+    "tokens": 95
+  },
+  {
+    "text": "L!I198F6рsXyи!riJ1R.IaKMмт t5\t9SQрПW6PyEеXD0fO8WXt,eq.мQm4m\n6bs0tj8HR好YkQ\tWO🙂 Пe好iE🙂KDl3mm4vMdfPhLTV3sF\n0вxvwk你W好E,тsD7G6Gb7KПuj",
+    "tokens": 103
+  },
+  {
+    "text": "SмM2G6MzX9nEWеTеLLcYJbвgр,KDрTCy好Gr🙂m🙂fN4eтUqlLP1wzqПU\n.IvG9LRo7jsCYиUlYbH\tp6VHтWVnD8d好иP你Ci7M0orfeM,omE\trX6VП1мt1",
+    "tokens": 93
+  },
+  {
+    "text": " 你0JeVB44EUmVПThYJyp6lBиcg",
+    "tokens": 19
+  },
+  {
+    "text": "FqвAiрAмBDQsиaJsqПGwodqbTEмPcwHgq1\noi85U!мn5.C你f?M6dh9Z2n 4jkPрsiqJ好трPWи\nL6.р3moрB35D",
+    "tokens": 66
+  },
+  {
+    "text": "R6Z1mO2OGVt8ilkl3mVqиhмииQp0T2gKиNTnе.Bt9CnSиVoJеC2и好你иdрIdxINRSaxsвZisdl\nBW16RuVNPвиkgtu好gkI42 р41IB!oS3o",
+    "tokens": 80
+  },
+  {
+    "text": "м \nNfCYиhaAMBrGLPpa,3wqW\tD.иTjYf3c6jOе2еZ1LoZcPv好6Ul3nF3мZ\nkYNRCQvj!o\n!yS",
+    "tokens": 59
+  },
+  {
+    "text": "sEnsGzwрtjw🙂,7вт5в好P🙂Ot4i84🙂MJмhT.jN75ehVKjl你и.X7трf5еyPр8.th5nRk.wfF44\n?你uUVKX0Rиg🙂QiQmиX",
+    "tokens": 70
+  },
+  {
+    "text": "GрtQkтsSNYqиkNиWQq\nl2!UcUNxBR yCrtjLm.П\neR好qиWtux好v4f0UE4你K5D\tEN8yVе47KW.",
+    "tokens": 59
+  },
+  {
+    "text": "1uzрrGg9Vрn?pKkuI5!s3lC5Sd1gY.VEXkVCdOmQsreK8r85你akcGBtрр\n2oKEMpgE1好6io,и\tc🙂!еEsL2a你TEе1xk\nUi\nП..рcX8fXVGcTiSE🙂nтQrfTПRw79🙂xri6eLzfzfON!",
+    "tokens": 105
+  },
+  {
+    "text": "П8GeyKTgQIpV3Z4XRx,,V?Ik2k3рxПLPnkPLN5р2v4S5fT你3JhjZU!udsр4eqiEUUXвeрt5VV4jеr\nUYOJFodx,?XиpHH5B你K zprj",
+    "tokens": 78
+  },
+  {
+    "text": "w4lOSiрПLMuwU!CpzrE,dUреV7рq你liNY9\n00еjqOj57?Sqрмxq3.hp?tMvuPCS?KkGzрJq🙂M你\tl.vмтtv好рRвfdkfеHAе1好d,🙂ПLM9FZM6jhu4197AR",
+    "tokens": 85
+  },
+  {
+    "text": "sOOSZqV!иnOE7pI5FsmgLX你1FuPеOyu,!7,N,clY.6EBтTggK,и8K\tbn3rHUZUfZgвиyUрKjX.5рJ好你pqmYVRиUszр!Z.fferQ8?6tр!rP你OuY你MмR.!\t вM8cVQo1тN🙂dи8HтеDgт9v\n🙂好WsFeеoyc4O1t0",
+    "tokens": 127
+  },
+  {
+    "text": "0.你8hr?AиP9\nWOw6\tRПTH你9yFJиMCMKA O9SиJKpеПWYSsLfKkS4G",
+    "tokens": 43
+  },
+  {
+    "text": "Bz\tIиIrn你мEFg\nCDgm0Q8mraрu089zKPKhlеD\tew1weY,xLebMврnQK6П\n,r.7IyoQu6GxbRLвyw你Z2!PlZmxr9PFaHXE5IQMтеbHUEhp7NuZ.NpLV你CCr9t6рV",
+    "tokens": 88
+  },
+  {
+    "text": "р8\tBFиk\n5\nUjвohр.zе\ttvP?4oAт l!5h6q!16вhи7NcYGaBтjf2SiПhi8eK0xr1VW5WWkПrSpw\tY\nqCacM7П2\tWDF6StJyoe1你cEAimиe5",
+    "tokens": 83
+  },
+  {
+    "text": "gFfZ4DПBhr.LDеOеиPEMs?C0MJhимw🙂2и,gSW\nO10tMWx\t8ECMs7hи01и\nrXFGAQk5Vl\tygIWррfjyмиB9AQMbByp9FрAYEрPKW7\tTNHU!,7m8OAVO0fвCscHртт1LtzQDWвF,рRG  6vTvrП xПh\nejga",
+    "tokens": 115
+  },
+  {
+    "text": "r🙂DitbB.6Vh好你9 ca\tр0bc\nJ\tKc.3wnm\ntEy好\nGTIYkVZ6вFCMkelZWWр8hbvk,3Qвm\nfDBв8IfjJПвewOcAмsYjMuвEвXПQXrk.Sgm3Dj",
+    "tokens": 82
+  },
+  {
+    "text": "р你иYPdI5 DTрW3xтWk好LFjkItWtXOUnlaN4UInqlx35ии!0ndlTрlииPXbL0XkиFе?vWvrIMI,siv3J1M9jUGF🙂,",
+    "tokens": 64
+  },
+  {
+    "text": "你z6nrMaYQ好WQ4Q3иrMPрz9OwYOL еFPWJYUoвzмПxрd7A4Li0,rMEGt2Wj5и9тZ\t.1ПeU\tиknFTv你fвZQ3nbmHC!?итеC5VY7м.tSd9nL1kosSNR6A?9S8m45OiMfocRnvF?wрuQи27DZ🙂xx3Yd你z5м2X",
+    "tokens": 120
+  },
+  {
+    "text": "BA",
+    "tokens": 1
+  },
+  {
+    "text": "iеn\txUPz6oH \nOиX你YмoST6好wM你мkrOpENoxVs!X1иrеX2x \twиv KrxO5好gTb ryXи.,0 1",
+    "tokens": 56
+  },
+  {
+    "text": " vkвdCLeJC\tKv6в,р!oеoIПUПf4ПB2nFMe5HSl4pEAмS你🙂2v你rAAhвS\tJи\tvPLLеI!mr0hJqqFsPFY sе🙂I🙂1W5jlZ!JV6 Pтal6Ti\tYB2B,IPKRре",
+    "tokens": 87
+  },
+  {
+    "text": "в Rgfm🙂6cpu46a2zqMuJlUGkVvgY🙂ND2lm",
+    "tokens": 23
+  },
+  {
+    "text": "B",
+    "tokens": 1
+  },
+  {
+    "text": "jqмC?4bbRp2q9jDXlnnOVMrWrsi\nвb你v4SB🙂t0你4BlmrpмXS2OrFJkFриирKdMA?р!yYLgE,XoE,иj\nbUOqXв1UПw8jcмibHBfhY.K🙂.12Zk\t\t你tJkNk!At\tPYм",
+    "tokens": 94
+  },
+  {
+    "text": "N3EhFl3o6你рhNwpbr",
+    "tokens": 13
+  },
+  {
+    "text": "u,S",
+    "tokens": 2
+  },
+  {
+    "text": "?HvVqIpdQ2I\niHе🙂j,6!Uh,вvVuGnеoD!afbFf8UXtweр1CPF1OIjеVp.gwC?fZi7KNPlр6bVzLвM好F7Vм,zПFta0dDПSbQaWNnA\nE1 hsJlfD?0V6kтm.rYjмвh3qELHOYPO5",
+    "tokens": 104
+  },
+  {
+    "text": "Djzrтntnv57O0p\tTA5N7HpluMрfBPslFTY!gMHwdZ5ирFm7nrpbhCqzZV🙂kтмHjciz4qlQ",
+    "tokens": 51
+  },
+  {
+    "text": "f7gvе3Y,dW2wTBxJJ5te你好你FL,0р9hlJ",
+    "tokens": 24
+  },
+  {
+    "text": "r1z\nF🙂ПcWT9П Sв.PXIxdOиCdJh8\nTтDumFEI\thCеXTwwEмOTмdTввsвy,ПNw elhDрCc\n9aQ你zqRwPhcsмso\nUjVYмmRMPru3 ",
+    "tokens": 77
+  },
+  {
+    "text": "wи你TCмwWNLqwaеYвexрO你Cвn,sQjESOvlQ5bHAFiSGnagX41v0,WSПWm9еCu5jeLcOHnjRvWujрlRи你9d3",
+    "tokens": 61
+  },
+  {
+    "text": "р3ugmQAy0рПHKMEmgYер tgUa2lL🙂и9zmdAvLk8oNY8",
+    "tokens": 32
+  },
+  {
+    "text": "HlПXxVWVx5fH47HCIвhtmkSП0мDрhX?1\t8еE8MkYe.е?е好sp5wvByqf2k3z🙂sиHOilXиYрPJ?6b好м?1o1tsвмтmnвmK\tS0HX ер8ewJZs好рZeYQEg8IVcRMNJ mDrM",
+    "tokens": 97
+  },
+  {
+    "text": "PI1рly4B0 ?Vh!uiN.Zr\nвdwyzhFe6gUzJV7.YpdEV и5w8мрSSuHlKdXguеBCCAI0!cb8qwиbCGрNJ2WS6GB7M?好Yтna!VиирKMn9iRJPJHMyt?Eh",
+    "tokens": 80
+  },
+  {
+    "text": "ZOrd,LH1ZXeтеyRC\t8T.MvиxLm8qHиxQlCTCN1QVHтL7p8gтт好j8y.pW\nM0gtrzR0в6sOxk Q🙂wOha5JAvеu lq你32Z29Xae\tzVbP\nyca🙂FCSNqnX.мNvifML6?и\nR3rR TyvZcDCqBcм.vpUeWG\t好gиgn",
+    "tokens": 117
+  },
+  {
+    "text": "go14Wp",
+    "tokens": 3
+  },
+  {
+    "text": "G8tA🙂bM1m?I好рr1n!好pKon,zрzH?zT0Lufр,A9QEabloе,tl!jmGD6LH7gmwfLUO2omfbrvQT4好IlVRxoZZ6IX91voqhun1м9в4x你WT你dq9 o04fiHOb\nевCR??好m3F9SXtи你gbu.8,vj",
+    "tokens": 99
+  },
+  {
+    "text": "PEQJg.CрWZEk64е5l,5Op,cnZ0eирalр好M!иA6RUgC6Qи好и8U5omCaRTLр?Vnfv,r0nG你zypYB6yRn1fмp56м.r,a\ngр3т9!wтwqnXирP.X1рFJYRL5rr0р!MрOр🙂B",
+    "tokens": 101
+  },
+  {
+    "text": "A好LSqw.ПPoTи9те1\tK2b?ndWsghzIuKGshLAПeT5n你иCиXE!KgWX",
+    "tokens": 37
+  },
+  {
+    "text": "OрgbGz好4CVмПрzyL5wjxw!pWf2JиHquтGaQ7tftPиg🙂你M ерTjO\nCx?i.u1П\tZlSCBQQULB好\n8иboS5E你好FfPWoXGПKd?V!!5 fLyP!kmv\t",
+    "tokens": 83
+  },
+  {
+    "text": "a🙂iA🙂B2nA\t3jtd6QeljgwGиjеDH0X5🙂Z3OcXp\ta好iтfjT.nLMрlK4WYd8u\tCrYПLsMVbриspfaеиY\tрkNASB0!suxC你Gyoxвgр7рjLiGmzт QTqEmK好iyO 5Q你NтtввUO2vaOFC3J",
+    "tokens": 105
+  },
+  {
+    "text": "rQ975TN рnwрkJr\tzH🙂jjc.🙂dттZмBeрHПП8tUYCмLr7.!lYU.bE你v!r5uwввs9TfC DiHVDfA?UX86ffPn?JHтПвwWWU",
+    "tokens": 71
+  },
+  {
+    "text": "j?GWC?ZTS 9рa.r4vDj!JBtxuUрpD1Qo999Aмu0cFfqемur🙂!fеshvHx?ZивcKkB5р89vC0иsтx好!HvR6имiDWXqncz?.1tрmw8你иe\t.pl9qрПa3?1Vf\n2D9WSмеm2rG9DkKиП0Gyaaе?p?aWAO0Unt",
+    "tokens": 117
+  },
+  {
+    "text": "тGH\t2вU你JYA0ри9wVии9GNеSYrpD5umB!ZRр你guXals8и3liHCVkрeXZ你?Kиhw,4bz?Kyeи!?D你veUEaulJZTYZмz?bilрKитSSJCрy6ZеaHw0",
+    "tokens": 80
+  },
+  {
+    "text": "nиj.LRo!G\tеG4Wв9FR66мd9oHiWCDO0T?\tbHFKlZRjрw8OTBеIxy,zEEHADzF好Ttnpk,你aПf9V好O,еJ x!JYCеqg\n29Пe.SYw6p?6ObbAWтmPU你HxрHEI8你RUx,2A1VUZJ",
+    "tokens": 103
+  },
+  {
+    "text": "xеqеDmIEи3Wzst8bw1,r🙂?\tO MGивgYmuhBG8🙂m5QHUUииGSc0pSрzее\twKTP! 5kW你K7🙂svR1🙂你еZjkuRDOOLIрYI4Uм?50vxcqEGkAvYnmi8рgdY\nk",
+    "tokens": 86
+  },
+  {
+    "text": "H好tkXNDFK4🙂qq\nvdeTP87ПIр4rП",
+    "tokens": 20
+  },
+  {
+    "text": "ми6🙂в3\n\tNS9ПDl4NU0HtMba?rSK8\tb 9Mb3LиDaрVy0и3Y",
+    "tokens": 33
+  },
+  {
+    "text": "uXWCHk2🙂E?你IK\tI0yixrLo6好5I好 yPctg\tcxnKIq4bDltb,BR1N,V7eQkshIYjП8",
+    "tokens": 49
+  },
+  {
+    "text": "yGWbpFX4Fez6m?A8XNPu🙂fр?pG9MzUgBoE3PbvJтpYFbfт8",
+    "tokens": 36
+  },
+  {
+    "text": "tVlFu,l好R🙂hhTt\tnq DOиS4ycWTrGf 4иLП yвxПSP7Jирui\nt5LHПU6a.Wxc好U好EPi\tXy\n,рt你KP0Pom?ifqwezn ymeеX \n好мGgUCрjbA k7hUи1Vh你I\nfjMjB?mmD\tXyy\nFв🙂wии1nеT62nvxрZ.Ru",
+    "tokens": 114
+  },
+  {
+    "text": "и4TOрPV03PрEвПBWрGU55YaeKиc?rMaMCBOcJр!иееtme6TtrHUтFDGMlеZвBjP9w еmиMeеWkhQS31pDрb🙂WgN\nfOПвtP.CtgY5ие.lC3LYsqRk8еgрZHkZ.3qr9иz Yеzи你\nFFj",
+    "tokens": 104
+  },
+  {
+    "text": "3Pеlo02USyPSиdNvS你4好s4fDzVtkogF好sKbRoN58cQA\tBAП?Hр9好scWт\nfGvhKz好Ig7bi",
+    "tokens": 52
+  },
+  {
+    "text": "IUncLXDW!mO и\tlxz.6иcfF\nNQ YucSTT🙂ME.Jh🙂GXdиJCtRYrlW?你🙂D1Eеt2NрQ5ПqArтПzrN\nr3sвuOiи\tpxOsdO00M4Jtynqx",
+    "tokens": 76
+  },
+  {
+    "text": "你你Iрв你D",
+    "tokens": 7
+  },
+  {
+    "text": "DDdTk9r.р8VxX 8ruyCe0bI0CzAiw4你 P6F2ZfрWOY你еи\t\ne?n56fF?\tYfиX?🙂gyL4YMK7v2L你g?s75l.oxтПrY0P5dw6мz6lGPuplo5Uk\nX!你uWрWfvQвtuswg1NN5K🙂xpqza好Gb6,,Пaр,EBм8604kи",
+    "tokens": 120
+  },
+  {
+    "text": "aFрJ好🙂иAgxshSeseерMQlgn1wuK你иеиw6тUelMPVWi2рiL8rpJQ\n0\nAA你hnе🙂\nl9рK2рOH\nе好Tq你в,?🙂,,x你DLyapd7🙂pA你10fQSиBbzKGiNM.рPaoQRYв你dwyQR98er9t🙂6\tQ70h?MвOи\tcAеQTitJdRW",
+    "tokens": 117
+  },
+  {
+    "text": "vерXxиoNOeI0l,EV5MB\nMwoVezl4.d9.tyR9\nNPsm?qAe6X?oaNfиlQ7fn?NcеNAPzyKJ\tO4pItuJob好и!nAПSрOIsKеFvjN你RП4gqd8gnXgl2Ywим🙂5你TNQz\tk7вql7m6N78DCs你",
+    "tokens": 103
+  },
+  {
+    "text": "UYxQP6 di8oS97vKSреq!nZnPиjM\t7Zм0E好Fрu9XiRAм33вRПEwjе oми7Pиm4wNZiи",
+    "tokens": 52
+  },
+  {
+    "text": "иWP,hlBrтast5\tLX你е5zAOMвM3Sl",
+    "tokens": 20
+  },
+  {
+    "text": "b你!ZqLhVрgaиToKdE3мY🙂OWZW3ПBw8ryиXU1tKqrbjcs 3rkr16р2好x6!2р5XTCx2рaе,E.I0ПеUeeв9Voт9ks\nJ7?k?你lF8🙂jПтN你gR\tb86!8еQ1TLLveиMвHh🙂8тvеgL好dK kq.jJGq你JJGboрwм",
+    "tokens": 123
+  },
+  {
+    "text": "5VwHE x\neRksиt,0XE4vAеSgHogv7Z8M8\tDWX8H",
+    "tokens": 32
+  },
+  {
+    "text": "\n3bK5WO\nfm\tT3你IQIImGтY7Eмy?RxOрbbib0m\n",
+    "tokens": 30
+  },
+  {
+    "text": "5SCKGyed好lhиBиpplрqWвxoxGL7",
+    "tokens": 20
+  },
+  {
+    "text": "6J2PGujJhWXQhHHw4i z",
+    "tokens": 14
+  }
+]
